@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="NewsAndPictures.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+ <style type="text/css">
+
+        .page_enabled, .page_disabled
+        {
+            display: inline-block;
+            height: 20px;
+            min-width: 20px;
+            line-height: 20px;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #ccc;
+        }
+        .page_enabled
+        {
+            background-color: #eee;
+            color: #000;
+        }
+        .page_disabled
+        {
+            background-color: #6C6C6C;
+            color: #fff !important;
+        }
+    </style>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/jquery-1.4.1.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.lightbox.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <div class="page">
+            <div class="header">
+                <div class="title">
+                    <h1>News and Pictures CMS
+                    </h1>
+                </div>
+                <div class="loginDisplay">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>!
+                        [
+                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />
+                            ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </form>
+</body>
+</html>
